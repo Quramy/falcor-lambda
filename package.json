@@ -1,7 +1,7 @@
 {
-  "name": "creates AWS Lambda handler from Falcor's data source",
-  "version": "0.0.1",
-  "description": "",
+  "name": "falcor-lambda",
+  "version": "0.1.0",
+  "description": "creates AWS Lambda handler from Falcor's data source",
   "main": "lib/index.js",
   "scripts": {
     "compile": "babel src -d lib",
