@@ -53,6 +53,39 @@
           }
         }
       }
+    }, {
+      "path": "model",
+      "method": "POST",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": {
+        "application/json": {
+          "method": "$input.json('$.method')",
+          "jsonGraph": "$input.json('$.jsonGraph')",
+          "callPath": "$input.json('$.callPath')",
+          "arguments": "$input.json('$.arguments')",
+          "pathSuffixes": "$input.json('$.pathSuffixes')",
+          "paths": "$input.json('$.paths')"
+        }
+      },
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {},
+          "responseModels": {
+            "application/json;charset=UTF-8": "Empty"
+          },
+          "responseTemplates": {
+            "application/json;charset=UTF-8": ""
+          }
+        }
+      }
     }
   ],
   "events": [],

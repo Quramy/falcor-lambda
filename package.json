@@ -1,5 +1,5 @@
 {
-  "name": "falcor-lambda",
+  "name": "creates AWS Lambda handler from Falcor's data source",
   "version": "0.0.1",
   "description": "",
   "main": "lib/index.js",

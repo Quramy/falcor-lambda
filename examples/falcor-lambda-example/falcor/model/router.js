@@ -9,6 +9,12 @@ export default class MyRouter extends Router.createClass([
         value: "Hello, world",
       };
     },
+    set: function(jsonGraph) {
+      return {
+        path: ["greeting"],
+        value: jsonGraph.greeting,
+      };
+    }
   },
 ]) {
 

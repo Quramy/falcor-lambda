@@ -1,10 +1,11 @@
 export default function eventToContext(event, context) {
   const ret = {};
-  if (event.method) {
-    ret.method = event.method;
-  }
-  if (event.paths) {
-    ret.paths = JSON.parse(event.paths);
-  }
+  Object.keys(event).forEach(k => {
+    if (k === "method") {
+      ret.method = event.method;
+    } else if (event[k].length) {
+      ret[k] = JSON.parse(event[k]);
+    }
+  });
   return ret;
 }
