@@ -1,0 +1,24 @@
+{
+  "name": "falcor-lambda",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "babel src -d lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "falcor",
+    "lambda"
+  ],
+  "author": "Quramy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Quramy/falcor-lambda.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0"
+  }
+}
