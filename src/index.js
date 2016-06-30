@@ -1,5 +1,20 @@
+import eventToContext from "./eventToContext";
 
-export default function dataSourceHanlder(getDataSource) {
+const defaultOpt = {
+  debug: false,
+  eventToContext
+};
+
+export default function dataSourceHanlder(getDataSource, opt = {}) {
+
+  const options = Object.assign(defaultOpt, opt);
+
+  function log() {
+    if (options.debug) {
+      console.log.apply(console, arguments);
+    }
+  }
+
   return (event, context, cb) => {
     const dataSource = getDataSource(event, context);
     if (!dataSource) {
@@ -8,20 +23,29 @@ export default function dataSourceHanlder(getDataSource) {
       });
     }
 
+    log("event", event);
     const falcorContext = eventToContext(event, context);
+    if (!falcorContext) {
+      return cb({
+        message: "No falcor context"
+      });
+    }
+    log("falcorContext", falcorContext);
 
     let obs;
-    if (falcorContext.method === 'get') {
-      obs = dataSource.get([].concat(context.paths));
-    } else if (falcorContext.method === 'set') {
-      obs = dataSource.set(context.jsonGraph);
+    if (falcorContext.method === 'set') {
+      obs = dataSource.set(falcorContext.jsonGraph);
     } else if (falcorContext.method === 'call') {
-      obs = dataSource.call(context.callPath, context.arguments, context.pathSuffixes, context.paths);
+      obs = dataSource.call(falcorContext.callPath, falcorContext.arguments, falcorContext.pathSuffixes, falcorContext.paths);
+    } else {
+      obs = dataSource.get([].concat(falcorContext.paths));
     }
 
     return obs.subscribe(jsonGraphEnvelope => {
+      log("success", jsonGraphEnvelope);
       cb(null, jsonGraphEnvelope);
     }, err => {
+      log("error", err);
       cb(err);
     });
   };
