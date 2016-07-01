@@ -138,3 +138,7 @@ If you integrate the above handler with AWS API Gateway, you must configure [API
   }
 }
 ```
+
+## License
+This software is released under the MIT License, see LICENSE.txt.
+
