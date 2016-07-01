@@ -1,4 +1,4 @@
-# falcor-lambda
+# falcor-lambda [![Build Status](https://travis-ci.org/Quramy/falcor-lambda.svg?branch=master)](https://travis-ci.org/Quramy/falcor-lambda) [![npm version](https://badge.fury.io/js/falcor-lambda.svg)](https://badge.fury.io/js/falcor-lambda)
 
 creates AWS Lambda handler from Falcor's data source.
 
