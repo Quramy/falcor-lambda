@@ -2,7 +2,7 @@ import eventToContext from "./eventToContext";
 
 const defaultOpt = {
   debug: false,
-  eventToContext
+  eventToFalcorContext: eventToContext,
 };
 
 export default function dataSourceHanlder(getDataSource, opt = {}) {
@@ -24,7 +24,7 @@ export default function dataSourceHanlder(getDataSource, opt = {}) {
     }
 
     log("event", event);
-    const falcorContext = eventToContext(event, context);
+    const falcorContext = options.eventToFalcorContext(event, context);
     if (!falcorContext) {
       return cb({
         message: "No falcor context"
