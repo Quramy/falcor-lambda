@@ -1,19 +1,21 @@
 env:
   global:
-    - GIT_COMMITTER_NAME=y-kurami
-    - GIT_COMMITTER_EMAIL=yosuke.kurami@gmail.com
-    - GIT_AUTHOR_NAME=Quramy
-    - GIT_AUTHOR_EMAIL=yosuke.kurami@gmail.com
+  - GIT_COMMITTER_NAME=y-kurami
+  - GIT_COMMITTER_EMAIL=yosuke.kurami@gmail.com
+  - GIT_AUTHOR_NAME=Quramy
+  - GIT_AUTHOR_EMAIL=yosuke.kurami@gmail.com
 language: node_js
 node_js:
-  - 4.2.3
+- 4.2.3
 before_install:
-  - npm install
+- npm install
 script:
-  - npm run test
+- npm run test
 deploy:
   provider: npm
   email: yosuke.kurami@gmail.com
   on:
     tags: true
     repo: Quramy/falcor-lambda
+  api_key:
+    secure: kxNUSLTsnh0o9rdQqbICI2HjUETsfxksY7M9nK2V2JbDkwukuN4qBX7gRTt4EF/BoIJ+i5YJiVIiH3wEax8THgpgCNECJP5UuYfnn4FYc43KUjqFPg/DpbPjTz9VSILf9h1XVMQlD7UF0JNOa0wxH22/C23v+iJzBnTIpe/UlLNS4UDlSVrGOW3ieXatPrxnqO4Pssw58WcdCsaQZfhKyHGtLjvNpTTDDSIKbtjYHJYXy6qLKS0q86pzENZPloZ+PN0GFVGMy7ztYSFSzbc7xYelv4bqOdMl0NLoc2Lo+ttswk0PtNFE75JZYojpfd5v0m0E9MLtsv0xOrVuE2JoXj+U9tcDtHVBmROpDVZDj9xB+jAIiIyOp4cC6R/9qGBA8D2PBYyBs1DNMVVfK9PJw/lTKQybKN/Uo1V68m/Yk5fdoF7VHLq5POxS5cYqO80IJyjVYkG2sMxE1+Kgojhy0q8C+EMr6Yg2VdNNNaJpTBXKyonkkZf/Oa9MOLepUqz5Tyyd54l/9nMSQL7FPDkE+Kf9jlpg8385QexpaS5S93W3e/GehM9OkxN3Y/ZyMBV+rlbnjIiHYuf8N/7ohs3N3NnkSzVLX93cWe6AURARyuo8x5FrLmoTKodvd79zQMJzTvSA6HcRHWsP1p4mXnUrPfvK2a4wCByf1WVqVlvVsKM=
