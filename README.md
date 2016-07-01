@@ -1,6 +1,6 @@
 # falcor-lambda [![Build Status](https://travis-ci.org/Quramy/falcor-lambda.svg?branch=master)](https://travis-ci.org/Quramy/falcor-lambda) [![npm version](https://badge.fury.io/js/falcor-lambda.svg)](https://badge.fury.io/js/falcor-lambda)
 
-creates AWS Lambda handler from Falcor's data source.
+It creates AWS Lambda handler from Falcor's data source.
 
 You can setup a Falcor endpoint on AWS API Gateway and Lambda using [serverless-falcor-starter](https://github.com/Quramy/serverless-falcor-starter). This project exposes the Falcor endponit using falcor-lambda.
 
@@ -8,7 +8,7 @@ You can setup a Falcor endpoint on AWS API Gateway and Lambda using [serverless-
 
 You can create a Lambda handler function. For example:
 
-```
+```js
 /* handler.js */
 
 import dataSourceHanlder from "falcor-lambda";
@@ -26,9 +26,9 @@ module.exports.handler = dataSourceHanlder(() => new Router([{
 
 #### function `dataSourceHanlder(sourceCreateFn: SourceCreateFn, option?: Option): LambdaHandlerFunction`
 
-Create a Lambda handler.
+Creates a Lambda handler.
 
-* `sourceCreateFn`: A function which returns a Falcor DataSource. You can create a Falcor DataSource with [falcor-router](https://github.com/Netflix/falcor-router).
+* `sourceCreateFn`: A function which returns a Falcor DataSource.
 
 #### type `SourceCreateFn: (event?: any, context?: any) => DataSource`
 
@@ -38,12 +38,12 @@ Create a Lambda handler.
 #### type `Option: {debug?: boolean, eventToFalcorContext?: (event: any, context: any) => FalcorContext}`
 
 * `debug`: Allows to output debug log.
-* `eventToFalcorContext`: This function creates a `FalcorContext` object from the Lambda's event or context value. See also #api-gateway-request-mapping .
+* `eventToFalcorContext`: This function creates a `FalcorContext` object from the Lambda's event or context value. See also [Request and event mapping](#request-and-event-mapping)
 
-#### type `FalcorContext: {method: string, jsonGraph?: JSONGraphEnvelope, callPath?: Path, arguments?: any[], pathSuffixes?: Pathset[], paths?: PathSet[]}
-`FalcorContext` represents Falcor DataSource `get/set/call` arguments.
+#### type `FalcorContext: {method: string, jsonGraph?: JSONGraphEnvelope, callPath?: Path, arguments?: any[], pathSuffixes?: Pathset[], paths?: PathSet[]}`
+`FalcorContext` represents Falcor DataSource's `get/set/call` arguments.
 
-## API Gateway Request Mapping
+## Request and event mapping
 
 If you integrate a Lambda handler with AWS API Gateway, you must create a mapping from request to Lambda events with [API Request Mapping](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html). falcor-lambda assumes that the request parameter of the GET/POST method will be mapped in the following way:
 
