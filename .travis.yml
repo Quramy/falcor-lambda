@@ -4,16 +4,16 @@ env:
     - GIT_COMMITTER_EMAIL=yosuke.kurami@gmail.com
     - GIT_AUTHOR_NAME=Quramy
     - GIT_AUTHOR_EMAIL=yosuke.kurami@gmail.com
-  language: node_js
-  node_js:
-    - 4.2.3
-  before_install:
-    - npm install
-  script:
-    - npm run test
-  deploy:
-    provider: npm
-    email: yosuke.kurami@gmail.com
-    on:
-      tags: true
-      repo: Quramy/falcor-lambda
+language: node_js
+node_js:
+  - 4.2.3
+before_install:
+  - npm install
+script:
+  - npm run test
+deploy:
+  provider: npm
+  email: yosuke.kurami@gmail.com
+  on:
+    tags: true
+    repo: Quramy/falcor-lambda
