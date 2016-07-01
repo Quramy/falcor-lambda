@@ -73,7 +73,7 @@ If you integrate a Lambda handler with AWS API Gateway, you must create a mappin
 }
 ```
 
-If you want the complete example, please see [examples/falcor-lambda-example/falcor/model/s-function.json].
+If you want the complete example, please see [falcor-lambda-example/falcor/model/s-function.json](falcor-lambda-example/falcor/model/s-function.json).
 
 By the default, falcor-lambda parses the each value of the event object using `JSON.parse` because assumption that they are stringified JSON parameter. If you use other mapping, witch is different from the above sample, you can pass through request values to your DataSource with customizing `eventToFalcorContext`.
 
