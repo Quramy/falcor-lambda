@@ -1,5 +1,7 @@
 # falcor-lambda [![Build Status](https://travis-ci.org/Quramy/falcor-lambda.svg?branch=master)](https://travis-ci.org/Quramy/falcor-lambda) [![npm version](https://badge.fury.io/js/falcor-lambda.svg)](https://badge.fury.io/js/falcor-lambda)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Quramy/falcor-lambda.svg)](https://greenkeeper.io/)
+
 It creates AWS Lambda handler from Falcor's data source.
 
 You can setup a Falcor endpoint on AWS API Gateway and Lambda using [serverless-falcor-starter](https://github.com/Quramy/serverless-falcor-starter). This project exposes the Falcor endponit using falcor-lambda.
